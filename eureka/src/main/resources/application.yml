@@ -1,5 +1,6 @@
 server:
-  port: 8761
+#  port: 8761 for local
+  port: ${PORT:8761} # use $PORT if set, fallback to 8761 locally
 
 spring:
   application:
@@ -9,3 +10,8 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+
+logging:
+  level:
+    com.netflix.discovery: DEBUG
+    org.springframework.cloud.gateway: DEBUG

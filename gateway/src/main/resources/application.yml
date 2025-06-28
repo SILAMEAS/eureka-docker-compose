@@ -1,5 +1,5 @@
 server:
-  port: 8001
+  port: ${PORT:8001} # use $PORT if set, fallback to 8761 locally
 
 spring:
   application:
@@ -33,4 +33,5 @@ management:
 
 logging:
   level:
+    com.netflix.discovery: DEBUG
     org.springframework.cloud.gateway: DEBUG
