@@ -13,3 +13,12 @@ http://localhost:8761/eureka/apps/PRODUCT-SERVICE
     exposure:
     include: '*'
 
+
+#### eureka.yml
+![img.png](img.png) 
+#### gateway.yml
+![img_1.png](img_1.png)![img.png](img.png)
+#### product.yml
+![img_2.png](img_2.png)![img.png](img.png) 
+
+
