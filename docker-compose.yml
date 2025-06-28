@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  discovery-service:
+    build:
+      context: ./eureka  # ✅ corrected from ./discovery-service
+    container_name: discovery-service
+    ports:
+      - "8761:8761"
+    networks:
+      - spring-cloud
+    environment:
+      - eureka.client.register-with-eureka=false
+      - eureka.client.fetch-registry=false
+
+  product-service:
+    build:
+      context: ./product
+    container_name: product-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - discovery-service
+    networks:
+      - spring-cloud
+    environment:
+      - SPRING_APPLICATION_NAME=product-service
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-service:8761/eureka
+      - EUREKA_INSTANCE_PREFER_IP_ADDRESS=true
+    restart: always
+
+  api-gateway:
+    build:
+      context: ./gateway
+    container_name: api-gateway
+    ports:
+      - "8001:8001"
+    depends_on:
+      - product-service
+    networks:
+      - spring-cloud
+    environment:
+      - SPRING_APPLICATION_NAME=api-gateway
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-service:8761/eureka
+    restart: always
+
+networks:
+  spring-cloud:
+    driver: bridge

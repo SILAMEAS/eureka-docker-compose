@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: product-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka
+  instance:
+    prefer-ip-address: true
