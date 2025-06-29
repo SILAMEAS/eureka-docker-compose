@@ -4,12 +4,12 @@ server:
 spring:
   application:
     name: api-gateway
-
+#lb://product-service
   cloud:
     gateway:
       routes:
         - id: product-service
-          uri: lb://product-service
+          uri: https://product-service-ijnr.onrender.com
           predicates:
             - Path=/products/**
           filters:
@@ -18,7 +18,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: https://eureka-service-8vz8.onrender.com/eureka/
     register-with-eureka: true
     fetch-registry: true
 

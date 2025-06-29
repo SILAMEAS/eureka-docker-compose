@@ -22,3 +22,30 @@ http://localhost:8761/eureka/apps/PRODUCT-SERVICE
 ![img_2.png](img_2.png)![img.png](img.png) 
 
 
+##### eureka : [docker.io/meassi/eureka-service]
+docker build -t eureka-service .
+docker images
+docker tag eureke-service meassi/eureka-service:latest
+docker push meassi/eureka-service:latest
+
+
+##### gateway : [docker.io/meassi/gateway]
+
+docker build -t gateway .
+docker images
+docker tag gateway meassi/gateway:latest
+docker push meassi/gateway:latest
+
+##### gateway : [docker.io/meassi/gateway]
+
+docker build -t gateway .
+docker images
+docker tag gateway meassi/gateway:latest
+docker push meassi/gateway:latest
+
+##### product : [docker.io/meassi/product-service]
+
+docker build -t product-service .
+docker images
+docker tag product-service meassi/product-service:latest
+docker push meassi/product-service:latest
