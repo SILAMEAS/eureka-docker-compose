@@ -25,6 +25,13 @@ eureka:
       defaultZone: ${DISCOVER_URL}
     register-with-eureka: true
     fetch-registry: true
+  instance:
+    hostname: ${GATEWAY_HOST}
+    prefer-ip-address: false
+    non-secure-port: ${GATEWAY_PORT}
+    instance-id: ${GATEWAY_HOST}:${GATEWAY_PORT}
+    metadata-map:
+      instanceId: ${spring.application.name}:${server.port}
 
 management:
   endpoints:

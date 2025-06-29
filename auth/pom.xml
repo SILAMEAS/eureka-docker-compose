@@ -57,8 +57,10 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.laq</groupId> <artifactId>lib-share-jwt</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>com.laq</groupId>
+            <artifactId>libsharejwt</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

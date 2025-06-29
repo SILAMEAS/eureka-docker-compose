@@ -3,11 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.laq</groupId> <artifactId>eureka-gateway-hosting-render</artifactId> <version>0.0.1-SNAPSHOT</version> <relativePath>../pom.xml</relativePath> </parent>
-    <groupId>com.laq</groupId> <artifactId>lib-share-jwt</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>lib-share-jwt</name>
-    <description>lib-share-jwt</description>
+        <groupId>com.laq</groupId>
+        <artifactId>eureka-gateway-hosting-render</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <artifactId>libsharejwt</artifactId>
+    <version>1.0.0</version>
     <url/>
     <licenses>
         <license/>

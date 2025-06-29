@@ -13,7 +13,12 @@ eureka:
     fetch-registry: true
 
   instance:
-    prefer-ip-address: true
+    hostname: ${PRODUCT_HOST}
+    prefer-ip-address: false
+    non-secure-port: ${PRODUCT_PORT}
+    instance-id: ${PRODUCT_HOST}:${PRODUCT_PORT}
+    metadata-map:
+      instanceId: ${spring.application.name}:${server.port}
 
 management:
   endpoints:
@@ -24,3 +29,15 @@ management:
 logging:
   level:
     com.netflix.discovery: DEBUG
+
+
+#  instance:
+#    hostname: your-product-service.onrender.com  # 👈 Your actual Render subdomain
+#    prefer-ip-address: false
+#    instance-id: your-product-service.onrender.com:${server.port}
+#    non-secure-port-enabled: false     # Prevent Eureka from setting HTTP port
+#    secure-port-enabled: true
+#    secure-port: 443
+#    status-page-url: https://your-product-service.onrender.com/actuator/info
+#    home-page-url: https://your-product-service.onrender.com
+#    health-check-url: https://your-product-service.onrender.com/actuator/health
