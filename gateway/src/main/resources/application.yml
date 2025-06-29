@@ -1,24 +1,28 @@
 server:
-  port: ${PORT:8001} # use $PORT if set, fallback to 8761 locally
+  port: ${PORT:${GATEWAY_PORT}}
 
 spring:
   application:
-    name: api-gateway
-#lb://product-service
+    name: ${GATEWAY_NAME}
+
   cloud:
     gateway:
       routes:
-        - id: product-service
-          uri: https://product-service-ijnr.onrender.com
+        - id: ${AUTH_ID}
+          uri: ${AUTH_URI}
           predicates:
-            - Path=/products/**
+            - Path=${AUTH_PATH}
+        - id: ${PRODUCT_ID}
+          uri: ${PRODUCT_URI}
+          predicates:
+            - Path=${PRODUCT_PATH}
           filters:
             - StripPrefix=0
 
 eureka:
   client:
-    serviceUrl:
-      defaultZone: https://eureka-service-8vz8.onrender.com/eureka/
+    service-url:
+      defaultZone: ${DISCOVER_URL}
     register-with-eureka: true
     fetch-registry: true
 

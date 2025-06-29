@@ -3,10 +3,10 @@ version: '3.8'
 services:
   discovery-service:
     build:
-      context: ./eureka  # ✅ corrected from ./discovery-service
-    container_name: discovery-service
+      context: ./eureka
+    container_name: ${DISCOVERY_NAME}
     ports:
-      - "8761:8761"
+      - "${DISCOVERY_PORT}:${DISCOVERY_PORT}"
     networks:
       - spring-cloud
     environment:
@@ -16,32 +16,51 @@ services:
   product-service:
     build:
       context: ./product
-    container_name: product-service
+    container_name: ${PRODUCT_ID}
     ports:
-      - "8080:8080"
+      - "${PRODUCT_PORT}:${PRODUCT_PORT}"
     depends_on:
       - discovery-service
     networks:
       - spring-cloud
     environment:
-      - SPRING_APPLICATION_NAME=product-service
-      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-service:8761/eureka
+      - SPRING_APPLICATION_NAME=${PRODUCT_NAME}
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=${DISCOVERY_URL}
       - EUREKA_INSTANCE_PREFER_IP_ADDRESS=true
+      - JWT_SECRET=${SECRET}
+    restart: always
+
+  auth-service:
+    build:
+      context: ./auth
+    container_name: ${AUTH_ID}
+    ports:
+      - "${AUTH_PORT}:${AUTH_PORT}"
+    depends_on:
+      - discovery-service
+    networks:
+      - spring-cloud
+    environment:
+      - SPRING_APPLICATION_NAME=${AUTH_NAME}
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=${DISCOVERY_URL}
+      - JWT_SECRET=${SECRET}
     restart: always
 
   api-gateway:
     build:
       context: ./gateway
-    container_name: api-gateway
+    container_name: ${GATEWAY_NAME}
     ports:
-      - "8001:8001"
+      - "${GATEWAY_PORT}:${GATEWAY_PORT}"
     depends_on:
+      - auth-service
       - product-service
     networks:
       - spring-cloud
     environment:
-      - SPRING_APPLICATION_NAME=api-gateway
-      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-service:8761/eureka
+      - SPRING_APPLICATION_NAME=${GATEWAY_NAME}
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=${DISCOVERY_URL}
+      - JWT_SECRET=${SECRET}
     restart: always
 
 networks:
