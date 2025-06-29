@@ -34,7 +34,7 @@
     <modules>
         <module>eureka</module>
         <module>auth</module>
-        <module>libJwtShare</module>
+        <module>sharejwt</module>
         <module>gateway</module>
         <module>product</module>
     </modules>

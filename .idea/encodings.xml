@@ -5,8 +5,9 @@
     <file url="file://$PROJECT_DIR$/eureka/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jwt-utils-share/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/libJwtShare/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libsharejwt/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/product/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sharejwt/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>

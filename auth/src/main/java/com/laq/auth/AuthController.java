@@ -2,7 +2,7 @@ package com.laq.auth;
 
 import java.util.Map;
 
-import com.laq.libJwtShare.JwtUtil;
+import com.laq.sharejwt.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
