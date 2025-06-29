@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@ComponentScan({"com.laq.auth", "com.laq.libsharejwt"})
+@ComponentScan({"com.laq.auth", "com.laq.libJwtShare"})
 public class AuthApplication {
 
   public static void main(String[] args) {

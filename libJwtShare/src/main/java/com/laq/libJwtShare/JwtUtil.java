@@ -1,5 +1,4 @@
-package com.laq.libsharejwt;
-
+package com.laq.libJwtShare;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import java.security.Key;

@@ -1,6 +1,6 @@
 package com.test.gateway.filter;
 
-import com.laq.libsharejwt.JwtUtil;
+import com.laq.libJwtShare.JwtUtil;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;

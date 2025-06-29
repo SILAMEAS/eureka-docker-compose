@@ -58,9 +58,8 @@
         </dependency>
         <dependency>
             <groupId>com.laq</groupId>
-            <artifactId>libsharejwt</artifactId>
-            <version>1.0.0</version>
-            <scope>compile</scope>
+            <artifactId>libJwtShare</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

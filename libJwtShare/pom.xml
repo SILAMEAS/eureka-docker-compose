@@ -8,8 +8,8 @@
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>libsharejwt</artifactId>
-    <version>1.0.0</version>
+    <artifactId>libJwtShare</artifactId>
+    <packaging>jar</packaging>
     <url/>
     <licenses>
         <license/>
