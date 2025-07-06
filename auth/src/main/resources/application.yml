@@ -3,8 +3,12 @@ server:
 
 spring:
   application:
-    name: ${AUTH_NAME}
-
+    name: auth-service
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer-uri: https://accounts.google.com
 eureka:
   client:
     service-url:

@@ -25,17 +25,24 @@ spring:
 
   cloud:
     gateway:
-      routes:
-        - id: ${AUTH_ID}
-          uri: ${AUTH_URI}
-          predicates:
-            - Path=${AUTH_PATH}
-        - id: ${PRODUCT_ID}
-          uri: ${PRODUCT_URI}
-          predicates:
-            - Path=${PRODUCT_PATH}
-          filters:
-            - StripPrefix=0
+      server:
+        webflux:
+          routes:
+            - id: auth
+              uri: lb://auth-service
+              predicates:
+                - Path=/auth/**
+              filters:
+                - StripPrefix=1
+                - PreserveHostHeader
+            - id: ${PRODUCT_ID}
+              uri: ${PRODUCT_URI}
+              predicates:
+                - Path=${PRODUCT_PATH}
+              filters:
+                - StripPrefix=0
+          default-filters:
+            - TokenRelay
 
 eureka:
   client:
@@ -58,9 +65,5 @@ management:
         include: '*'
   endpoint:
     gateway:
-      enabled: true
-
-logging:
-  level:
-    com.netflix.discovery: DEBUG
-    org.springframework.cloud.gateway: DEBUG
+    # Remove 'enabled: true' or update to use 'access' config as per your Spring Boot version
+    # enabled: true

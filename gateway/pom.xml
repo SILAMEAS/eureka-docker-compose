@@ -50,10 +50,15 @@
 			<artifactId>sharejwt</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<!-- Spring Boot WebFlux Gateway -->
+
+		<!-- Spring Boot OAuth2 Client for Google Login -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-oauth2-client</artifactId>
 		</dependency>
+
+		<!-- Actuator (Optional for monitoring) -->
 
 	</dependencies>
 	<dependencyManagement>

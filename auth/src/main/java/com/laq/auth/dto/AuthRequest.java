@@ -1,4 +1,4 @@
-package com.laq.auth;
+package com.laq.auth.dto;
 
 import lombok.Getter;
 import lombok.Setter;

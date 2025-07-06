@@ -1,4 +1,4 @@
-package com.sila.gateway.config;
+package com.test.gateway;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,12 +14,15 @@ public class SecurityConfig {
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
         http
                 .authorizeExchange(exchanges -> exchanges
-                        .pathMatchers("/", "/login**", "/error**").permitAll()
+                        .pathMatchers("/login", "/actuator/**").permitAll()
                         .anyExchange().authenticated()
                 )
                 .oauth2Login()
                 .and()
-                .csrf().disable(); // Disable only if needed
+                .oauth2Client()
+                .and()
+                .csrf().disable();
+
         return http.build();
     }
 }
